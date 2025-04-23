@@ -88,11 +88,15 @@ public class PetStore
             Dog foundDog = this.identifySoldDogFromInventory((Dog) soldPet);
             this.removePetFromInventoryByPetId(PetType.DOG, soldPet.getPetStoreId());
             return foundDog;
-        } else if (soldPet instanceof Cat) {
+        }
+        else if (soldPet instanceof Cat)
+        {
             Cat foundCat = this.identifySoldCatFromInventory((Cat) soldPet);
             this.removePetFromInventoryByPetId(PetType.CAT, soldPet.getPetStoreId());
             return foundCat;
-        } else if (soldPet instanceof Snake) {
+        }
+        else if
+        (soldPet instanceof Snake) {
             Snake foundSnake = this.identifySoldSnakeFromInventory((Snake) soldPet);
             this.removePetFromInventoryByPetId(PetType.SNAKE, soldPet.getPetStoreId());
             return foundSnake;

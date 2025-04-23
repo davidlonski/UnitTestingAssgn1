@@ -23,17 +23,17 @@ public class SnakeTests {
 
     @Test
     @Order(1)
-    @DisplayName("Animal Type Tests Domestic")
+    @DisplayName("Snake Type Tests Domestic")
     public void animalTypeTests() {
-        assertEquals(AnimalType.DOMESTIC, snake.getAnimalType(), "Animal Type Expected[" + AnimalType.DOMESTIC
-                + "] Actual[" + snake.getAnimalType() + "]");
+        assertEquals(AnimalType.DOMESTIC, snake.getAnimalType(), "Snake Type Expected[" + AnimalType.DOMESTIC
+                + "] Actual Type[" + snake.getAnimalType() + "]");
     }
 
     @Test
     @Order(2)
     @DisplayName("Snake Speak Hiss Tests")
     public void snakeGoesHissTest() {
-        assertEquals("The snake goes hiss! hiss!", snake.speak(), "I was expecting hiss! hiss!");
+        assertEquals("The snake goes hiss! hiss!", snake.speak(), "I was expecting hiss! hiss! But got " + snake.speak());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class SnakeTests {
     @Order(4)
     @DisplayName("Snake Breed Test")
     public void breedTest() {
-        assertEquals(Breed.BALL_PYTHON, snake.getBreed(), "Expected Ball Python breed!");
+        assertEquals(Breed.BALL_PYTHON, snake.getBreed(), "Expected Ball Python breed! But got: " + snake.getBreed());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class SnakeTests {
     @DisplayName("Snake Wild Speak Test")
     public void snakeWildSpeakTest() {
         Snake wildSnake = new Snake(AnimalType.WILD, Skin.SCALES, Gender.FEMALE, Breed.COPPERHEAD);
-        assertEquals("The snake goes ssss! ssss!", wildSnake.speak(), "Wild snake should make ssss! sound");
+        assertEquals("The snake goes ssss! ssss!", wildSnake.speak(), "Wild snake should make ssss! sound. But got " + wildSnake.speak());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class SnakeTests {
     @DisplayName("Snake Cost Test")
     public void snakeCostTest() {
         Snake costSnake = new Snake(AnimalType.DOMESTIC, Skin.SCALES, Gender.MALE, Breed.BALL_PYTHON, new BigDecimal("200.00"));
-        assertEquals(new BigDecimal("200.00"), costSnake.getCost(), "Snake cost should be $200.00");
+        assertEquals(new BigDecimal("200.00"), costSnake.getCost(), "Snake cost should be $200.00. But snake cost is " + costSnake.getCost());
     }
 
     @Test
@@ -88,7 +88,7 @@ public class SnakeTests {
     public void snakeStoreIdTest() {
         Snake storeSnake = new Snake(AnimalType.DOMESTIC, Skin.SCALES, Gender.MALE, Breed.BALL_PYTHON, 
             new BigDecimal("200.00"), 1);
-        assertEquals(1, storeSnake.getPetStoreId(), "Snake store ID should be 1");
+        assertEquals(1, storeSnake.getPetStoreId(), "Snake store ID should be 1. But ID is " + storeSnake.getPetStoreId());
     }
 
     @Test
@@ -97,7 +97,7 @@ public class SnakeTests {
     public void snakeToStringTest() {
         String expected = snake.toString();
         assertTrue(expected.contains("The snake is DOMESTIC"));
-        assertTrue(expected.contains("The snake breed is BALL_PYTHON"));
+        assertTrue(expected.contains("The breed is BALL_PYTHON"));
         assertTrue(expected.contains("The snake is not venomous"));
         assertTrue(expected.contains("The snake is hyperallergetic"));
         assertTrue(expected.contains("The snake goes hiss! hiss!"));

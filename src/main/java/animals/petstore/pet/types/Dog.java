@@ -16,6 +16,18 @@ public class Dog extends Pet implements PetImpl {
     private int numberOfLegs;
     private Breed breed;
 
+
+    
+    /**
+     * Constructor
+     * @param animalType The {@link AnimalType} of the dog
+     * @param cost The cost of the dog
+     * @param gender The {@link Gender} of the dog
+     */
+    public Dog(AnimalType animalType, BigDecimal cost, Gender gender) {
+        super(PetType.DOG, cost, gender);
+    }
+
     /**
      * Constructor
      * @param animalType {@link AnimalType} that defines if it domesticated or wild dog

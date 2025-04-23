@@ -10,17 +10,43 @@ import animals.petstore.pet.attributes.Skin;
 import java.math.BigDecimal;
 
 public class Snake extends Pet implements PetImpl {
+
+    /* Properties */
     private Breed breed;
     private boolean isVenomous;
 
+    /**
+     * Constructor
+     * @param animalType The {@link AnimalType} of the snake
+     * @param skinType The {@link Skin} of the snake
+     * @param gender The {@link Gender} of the snake
+     * @param breed The {@link Breed} of the snake
+     */
     public Snake(AnimalType animalType, Skin skinType, Gender gender, Breed breed) {
         this(animalType, skinType, gender, breed, new BigDecimal(0));
     }
 
+    /**
+     * Constructor
+     * @param animalType The {@link AnimalType} of the snake
+     * @param skinType The {@link Skin} of the snake
+     * @param gender The {@link Gender} of the snake
+     * @param breed The {@link Breed} of the snake
+     * @param cost The cost of the snake
+     */
     public Snake(AnimalType animalType, Skin skinType, Gender gender, Breed breed, BigDecimal cost) {
         this(animalType, skinType, gender, breed, cost, 0);
     }
 
+    /**
+     * Constructor
+     * @param animalType The {@link AnimalType} of the snake
+     * @param skinType The {@link Skin} of the snake
+     * @param gender The {@link Gender} of the snake
+     * @param breed The {@link Breed} of the snake
+     * @param cost The cost of the snake
+     * @param petStoreId The pet store id
+     */
     public Snake(AnimalType animalType, Skin skinType, Gender gender, Breed breed, BigDecimal cost, int petStoreId) {
         super(PetType.SNAKE, cost, gender, petStoreId);
         super.skinType = skinType;
@@ -29,14 +55,27 @@ public class Snake extends Pet implements PetImpl {
         this.isVenomous = isVenomousBreed(breed);
     }
 
+    /**
+     * Is the snake venomouse determined by the bree of snake
+     * @param breed The {@link Breed} of the snake
+     * @return true if the snake is venomous, false otherwise
+     */
     private boolean isVenomousBreed(Breed breed) {
         return breed == Breed.COPPERHEAD || breed == Breed.CORAL;
     }
 
+    /**
+     * Get the hypoallergenic status of the snake
+     * @return The hypoallergenic status of the snake
+     */
     public String snakeHypoallergenic() {
         return super.petHypoallergenic(this.skinType).replaceAll("pet", "snake");
     }
 
+    /**
+     * Get the language of the snake
+     * @return The language of the snake
+     */
     public String speak() {
         String language;
         switch (this.animalType) {
@@ -53,24 +92,40 @@ public class Snake extends Pet implements PetImpl {
         return language;
     }
 
+    /**
+     * Get the venomous status of the snake
+     * @return The venomous status of the snake
+     */
     public boolean isVenomous() {
         return isVenomous;
     }
 
+    /**
+     * Get the breed of the snake
+     * @return The breed of the snake
+     */
     @Override
     public Breed getBreed() {
         return this.breed;
     }
 
+    /**
+     * Get the animal type of the snake
+     * @return The animal type of the snake
+     */ 
     public AnimalType getAnimalType() {
         return super.animalType;
     }
 
+    /**
+     * Get the string representation of the snake
+     * @return The string representation of the snake
+     */
     @Override
     public String toString() {
         return super.toString() +
                 "The snake is " + this.animalType + "!\n" +
-                "The snake breed is " + this.getBreed() + "!\n" +
+                "The breed is " + this.getBreed() + "!\n" +
                 "The snake is " + (isVenomous ? "venomous" : "not venomous") + "!\n" +
                 this.snakeHypoallergenic() + "!\n" +
                 this.speak();
